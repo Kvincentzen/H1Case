@@ -18,6 +18,18 @@ namespace KørselsBog
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
+        private static void opretBil(string navn, string adr, int ald)
+        {
+            string statement = ("insert into kunder values ('" + navn + "','" + adr + "'," + ald + ")");
+            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
+            Sql_Methods.Insert(statement);
+        }
+        private static void opretVærkstedsbesøg(string navn, string adr, int ald)
+        {
+            string statement = ("insert into kunder values ('" + navn + "','" + adr + "'," + ald + ")");
+            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
+            Sql_Methods.Insert(statement);
+        }
         public static void Insert(string sql)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))
