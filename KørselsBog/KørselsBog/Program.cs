@@ -10,6 +10,7 @@ namespace KørselsBog
     {
         static void Main(string[] args)
         {
+            //retardoooo
         }
     }
 }
