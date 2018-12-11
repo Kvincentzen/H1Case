@@ -8,14 +8,6 @@ namespace KørselsBog
 {
     class Sql_Methods
     {
-        static void Main(string[] args)
-        {
-            //Opretter en kunde
-            //opretKunde();
-            SqlTest.Select("select*from kunder");
-            Console.ReadKey();
-
-        }
         private static void opretKunde()
         {
             string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
