@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace KørselsBog
 {
     class Sql_Methods
     {
-        private static void opretKunde()
-        {
-            string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
-            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
-            SqlTest.Insert(statement);
-        }
         //ConnectionString
         private static string ConnectionString = "Data Source=Skab5-PC-01;Initial Catalog=sqleksempler; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
+        private static void opretKunde(string navn, string adr, int ald)
+        {
+            string statement = ("insert into kunder values ('" + navn + "','" + adr + "'," + ald + ")");
+            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
+            Sql_Methods.Insert(statement);
+        }
         public static void Insert(string sql)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -47,3 +48,6 @@ namespace KørselsBog
                 Console.WriteLine(denførsterække);
             }
         }
+
+    }
+}
