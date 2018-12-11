@@ -5,6 +5,7 @@ namespace KørselsBog
     {
         public Menu()
         {
+            
         }
     }
 }
