@@ -61,7 +61,7 @@ namespace KørselsBog
                     Console.WriteLine("Indtast Årgang");
                     Årgang = Convert.ToInt16(Console.ReadLine());
                     Console.Clear();
-                    Console.WriteLine("Her er informationen er er registeret.\nTjek om oplysningerne stemmer overens med det ønskede hvis ikke kan du rette det herunder");
+                    Console.WriteLine("Her er informationen der er registeret.\nTjek om oplysningerne stemmer overens med det ønskede,\nhvis ikke kan du rette det herunder.\n");
                     Console.WriteLine($"Kunde ID : {KundeID}");
                     Console.WriteLine($"Registreringsnummer : {RegNr}");
                     Console.WriteLine($"Mærke : {Mærke}");
@@ -70,8 +70,86 @@ namespace KørselsBog
                     Console.WriteLine($"OprettelsesDato : {OprettelsesDato}");
                     Console.WriteLine($"Kilometer kørt : {KmKørt}");
                     Console.WriteLine($"Årgang : {Årgang}");
+                    Console.ReadKey();
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\n\n [r]ediger eller [o]k");
+                        key = Console.ReadKey().Key;
+                        Console.Clear();
+                        if (key == ConsoleKey.R)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Indtast linje nr på det der skal rettes\n");
+                            Console.WriteLine($"1.Kunde ID : {KundeID}");
+                            Console.WriteLine($"2.Registreringsnummer : {RegNr}");
+                            Console.WriteLine($"3.Mærke : {Mærke}");
+                            Console.WriteLine($"4.Model : {Model}");
+                            Console.WriteLine($"5.Brændstoffstype : {Brændstoffstype}");
+                            Console.WriteLine($"6.OprettelsesDato : {OprettelsesDato}");
+                            Console.WriteLine($"7.Kilometer kørt : {KmKørt}");
+                            Console.WriteLine($"8.Årgang : {Årgang}");
+                            key = Console.ReadKey().Key;
+                            if(key == ConsoleKey.D1)
+                            {
+                                Console.WriteLine("Indtast KundeID");
+                                KundeID = Console.ReadLine();
+                                Console.Clear();
+                            }
+                            else if (key == ConsoleKey.D2)
+                            {
+                                Console.WriteLine("Indtast RegNr");
+                                RegNr = Console.ReadLine();
+                                Console.Clear();
+                            }
+                            else if (key == ConsoleKey.D3)
+                            {
+                                Console.WriteLine("Indtast Mærke");
+                                Mærke = Console.ReadLine();
+                                Console.Clear();
+                            }
+                            else if (key == ConsoleKey.D4)
+                            {
+                                Console.WriteLine("Indtast Model");
+                                Model = Console.ReadLine();
+                                Console.Clear();
+                            }
+                            else if (key == ConsoleKey.D5)
+                            {
+                                Console.WriteLine("Indtast Brændstoffstype");
+                                Brændstoffstype = Console.ReadLine();
+                                Console.Clear();
+                            }
+                            else if (key == ConsoleKey.D6)
+                            {
+                                Console.WriteLine("Indtast OprettelsesDato format: dag-måned-år");
+                                OprettelsesDato = Console.ReadLine();
+                                Console.Clear();
+                            }
+                            else if (key == ConsoleKey.D7)
+                            {
+                                Console.WriteLine("Indtast Kmkørt");
+                                KmKørt = Convert.ToDouble(Console.ReadLine());
+                                Console.Clear();
+                            }
+                            else if (key == ConsoleKey.D8)
+                            {
+                                Console.WriteLine("Indtast Årgang");
+                                Årgang = Convert.ToInt16(Console.ReadLine());
+                                Console.Clear();
+                            }
+                        }
+                        else if (key == ConsoleKey.O)
+                        {
+                            Console.WriteLine("Kunde");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Indtast gyldig værdi");
+                        }
+                        Console.ReadKey();
+                    } while (key != ConsoleKey.D1 && key != ConsoleKey.D2);
 
-                    Console.WriteLine("\n [r]ediger eller [o]k");
                     Sql_Methods.opretBil(KundeID,RegNr,Mærke,Model,Brændstoffstype,OprettelsesDato,KmKørt,Årgang);
                 }
                 else if (key == ConsoleKey.D2)
