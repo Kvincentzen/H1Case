@@ -12,9 +12,9 @@ namespace KørselsBog
     {
         //ConnectionString
         private static string ConnectionString = "Data Source=Skab5-PC-01;Initial Catalog=sqleksempler; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        public static void opretKunde(string KundeID, string navn, string adr, int ald)
+        public static void opretKunde(string KundeID, string navn, string adr, int fødselsdagsdato)
         {
-            string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + ald + ")");
+            string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + fødselsdagsdato + ")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
@@ -25,7 +25,7 @@ namespace KørselsBog
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
-        public static void opretVærkstedsbesøg(DateTime DatoAnkomst, DateTime Datoafgang, string Mekaniker,string RegNr)
+        public static void opretVærkstedsbesøg(int DatoAnkomst, int Datoafgang, string Mekaniker,string RegNr)
         {
             string statement = ("insert into værkstedsbesøg values ('" + DatoAnkomst + "','" + Datoafgang + "'," + Mekaniker + "','" + RegNr + ")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
