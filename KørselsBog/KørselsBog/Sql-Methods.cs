@@ -12,21 +12,21 @@ namespace KørselsBog
     {
         //ConnectionString
         private static string ConnectionString = "Data Source=Skab5-PC-01;Initial Catalog=sqleksempler; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private static void opretKunde(string navn, string adr, int ald)
+        private static void opretKunde(string KundeID, string navn, string adr, int ald)
         {
-            string statement = ("insert into kunder values ('" + navn + "','" + adr + "'," + ald + ")");
+            string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + ald + ")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
-        private static void opretBil(string navn, string adr, int ald)
+        private static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype,DateTime OprettelsesDato, double KmKørt, int Årgang)
         {
-            string statement = ("insert into kunder values ('" + navn + "','" + adr + "'," + ald + ")");
+            string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "'," + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "','" + KmKørt + "','" + Årgang +")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
-        private static void opretVærkstedsbesøg(string navn, string adr, int ald)
+        private static void opretVærkstedsbesøg(DateTime DatoAnkomst, DateTime Datoafgang, string Mekaniker,string RegNr)
         {
-            string statement = ("insert into kunder values ('" + navn + "','" + adr + "'," + ald + ")");
+            string statement = ("insert into værkstedsbesøg values ('" + DatoAnkomst + "','" + Datoafgang + "'," + Mekaniker + "','" + RegNr + ")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
