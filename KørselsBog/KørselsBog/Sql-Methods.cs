@@ -19,7 +19,7 @@ namespace KørselsBog
             Sql_Methods.Insert(statement);
         }
         //Oprettelser
-        public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype,DateTime OprettelsesDato, double KmKørt, int Årgang)
+        public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype,int OprettelsesDato, double KmKørt, int Årgang)
         {
             string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "'," + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "','" + KmKørt + "','" + Årgang +")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
