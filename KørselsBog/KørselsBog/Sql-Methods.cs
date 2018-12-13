@@ -19,9 +19,9 @@ namespace KørselsBog
             Sql_Methods.Insert(statement);
         }
         //Oprettelser
-        public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype,string OprettelsesDato, double KmKørt, int Årgang)
+        public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype,string OprettelsesDato, int KmKørt, int Årgang)
         {
-            string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "'," + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "'," + KmKørt + "," + Årgang +")");
+            string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "','" + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "','" + KmKørt + "'," + Årgang +")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
@@ -58,10 +58,10 @@ namespace KørselsBog
 
                 //foreach (DataRow kunde in table.Rows)
                 //{
-                //    Console.WriteLine(kunde["id"].ToString());
+                //    Console.WriteLine(kunde["Kundeid"].ToString());
                 //    Console.WriteLine(kunde["navn"].ToString());
                 //    Console.WriteLine(kunde["adr"].ToString());
-                //    Console.WriteLine(kunde["alder"].ToString());
+                //    Console.WriteLine(kunde["fødselsdato"].ToString());
                 //    Console.WriteLine();
                 //}
                 //string denførsterække = table.Rows[0]["navn"].ToString();

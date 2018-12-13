@@ -13,8 +13,8 @@ namespace KørselsBog
                 Console.Clear();
                 if (key == ConsoleKey.D1) {
                     Bil();
-                } else if (key == ConsoleKey.D2) {
-                    Kunde();
+                //} else if (key == ConsoleKey.D2) {
+                //    Kunde();
                 } else {
                     Console.WriteLine("Indtast gyldig værdi");
                 }
@@ -25,7 +25,7 @@ namespace KørselsBog
         {
             ConsoleKey key = new ConsoleKey();
             string KundeID, RegNr, Mærke, Model, Brændstoffstype, OprettelsesDato;
-            double KmKørt;
+            int KmKørt;
             int Årgang;
             do
             {
@@ -56,7 +56,7 @@ namespace KørselsBog
                     OprettelsesDato = Convert.ToString(DateTime.Now.ToString("d/M/yyyy"));
                     Console.Clear();
                     Console.WriteLine("Indtast Kmkørt");
-                    KmKørt = Convert.ToDouble(Console.ReadLine());
+                    KmKørt = Convert.ToInt16(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("Indtast Årgang");
                     Årgang = Convert.ToInt16(Console.ReadLine());
@@ -132,7 +132,7 @@ namespace KørselsBog
                             {
                                 Console.Clear();
                                 Console.WriteLine("Indtast Kmkørt");
-                                KmKørt = Convert.ToDouble(Console.ReadLine());
+                                KmKørt = Convert.ToInt16(Console.ReadLine());
                             }
                             else if (key == ConsoleKey.D8)
                             {
