@@ -12,6 +12,7 @@ namespace KørselsBog
         {
             Console.WriteLine("Hello");
             Menu M = new Menu();
+            Sql_Methods.Select("Select * from kunder");
             Console.ReadKey();
         }
     }

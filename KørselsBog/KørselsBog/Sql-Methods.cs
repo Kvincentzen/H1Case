@@ -11,7 +11,7 @@ namespace KørselsBog
     class Sql_Methods
     {
         //ConnectionString
-        private static string ConnectionString = "Data Source=Skab5-PC-01;Initial Catalog=sqleksempler; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static string ConnectionString = "Data Source=Skab5-PC-01;Initial Catalog=H1Case; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public static void opretKunde(string KundeID, string navn, string adr, int fødselsdagsdato)
         {
             string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + fødselsdagsdato + ")");
@@ -21,13 +21,13 @@ namespace KørselsBog
         //Oprettelser
         public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype,string OprettelsesDato, double KmKørt, int Årgang)
         {
-            string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "'," + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "','" + KmKørt + "','" + Årgang +")");
+            string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "'," + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "'," + KmKørt + "," + Årgang +")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
         public static void opretVærkstedsbesøg(int DatoAnkomst, int Datoafgang, string Mekaniker,string RegNr)
         {
-            string statement = ("insert into værkstedsbesøg values ('" + DatoAnkomst + "','" + Datoafgang + "'," + Mekaniker + "','" + RegNr + ")");
+            string statement = ("insert into værkstedsbesøg values ('" + DatoAnkomst + "','" + Datoafgang + "','" + Mekaniker + "','" + RegNr + "')");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Insert(statement);
         }
@@ -40,6 +40,13 @@ namespace KørselsBog
                 cmd.ExecuteNonQuery();
             }
         }
+        // skal måske ikke bruges
+        //public static void SelectKunde(string KundeID)
+        //{
+        //    string statement = ("select værkstedsbesøg values ('" + DatoAnkomst + "','" + Datoafgang + "','" + Mekaniker + "','" + RegNr + "')");
+        //    //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
+        //    Sql_Methods.Insert(statement);
+        //}
         public static void Select(string sql)
         {
             DataTable table = new DataTable();
@@ -57,9 +64,13 @@ namespace KørselsBog
                 //    Console.WriteLine(kunde["alder"].ToString());
                 //    Console.WriteLine();
                 //}
-                string denførsterække = table.Rows[0]["navn"].ToString();
-                Console.WriteLine(denførsterække);
+                //string denførsterække = table.Rows[0]["navn"].ToString();
+                Console.WriteLine(table);
             }
+        }
+        public static void DeleteKunde(string KundeID)
+        {
+
         }
 
     }
