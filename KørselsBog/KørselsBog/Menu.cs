@@ -140,24 +140,31 @@ namespace KørselsBog
                                 Console.WriteLine("Indtast Årgang");
                                 Årgang = Convert.ToInt16(Console.ReadLine());
                             }
-                            else { Console.WriteLine("Indtast gyldig værdi"); }
+                            else
+                            {
+                                Console.WriteLine("Indtast gyldig værdi");
+                                Console.ReadKey();
+                            }
                         }
                         else if (key == ConsoleKey.O)
                         {
-                            Console.WriteLine("Kunde");
                         }
                         else
                         {
                             Console.WriteLine("Indtast gyldig værdi");
+                            Console.ReadKey();
                         }
-                        Console.ReadKey();
                     } while (key != ConsoleKey.O);
 
                     Sql_Methods.opretBil(KundeID,RegNr,Mærke,Model,Brændstoffstype,OprettelsesDato,KmKørt,Årgang);
                 }
                 else if (key == ConsoleKey.D2)
                 {
-                    Console.WriteLine("Kunde");
+                    Console.WriteLine("Opdater Bil");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    Sql_Methods.Select(RegNr);
+                    Console.ReadLine();
                 }
 
                 else
