@@ -1,0 +1,1 @@
+Insert into Kunder values(1,'seb','sebvej 12',1)
