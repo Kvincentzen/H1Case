@@ -12,8 +12,8 @@ namespace KørselsBog
         {
             Console.WriteLine("Hello");
             Menu M = new Menu();
-            //Sql_Methods.Select("Select "+kundeID+" from kunder");
             Console.ReadKey();
+            /* "DO YOU KNOW DA WEI" */
 //⢀⢀⢀⢀⢀⢀⢀⢀⢀⢀⠶⣿⣭⡧⡤⣤⣻⣛⣹⣿⣿⣿⣶⣄
 //⢀⢀⢀⢀⢀⢀⢀⢀⢀⣼⣊⣤⣶⣷⣶⣧⣤⣽⣿⣿⣿⣿⣿⣿⣷
 //⢀⢀⢀⢀⢀⢀⢀⢀⢀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
