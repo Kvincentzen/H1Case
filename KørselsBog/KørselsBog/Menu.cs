@@ -234,7 +234,6 @@ namespace KørselsBog
                         Console.WriteLine($"Navn : {navn}");
                         Console.WriteLine($"Adresse : {adr}");
                         Console.WriteLine($"Fødselsdag : {fødselsdagsdat}");
-                        Console.WriteLine($"OprettelsesDato : {OprettelsesDato}");
                         Console.ReadKey();
                         Console.Clear();
                         Console.WriteLine("\n\n [r]ediger eller [o]k");
@@ -248,7 +247,6 @@ namespace KørselsBog
                             Console.WriteLine($"2.Navn : {navn}");
                             Console.WriteLine($"3.Adresse : {adr}");
                             Console.WriteLine($"4.Fødselsdag : {fødselsdagsdat}");
-                            Console.WriteLine($"5.OprettelsesDato : {OprettelsesDato}");
                             key = Console.ReadKey().Key;
                             Console.Clear();
                             if (key == ConsoleKey.D1)
@@ -273,7 +271,7 @@ namespace KørselsBog
                             {
                                 Console.Clear();
                                 Console.WriteLine("Indtast Fødselsdag");
-                                fødselsdagsdat = Console.ReadLine();
+                                fødselsdagsdat = Convert.ToInt32(Console.ReadLine());
                             }
                             else
                             {
@@ -295,34 +293,26 @@ namespace KørselsBog
                 }
                 else if (key == ConsoleKey.D2)
                 {
-                    Console.WriteLine("Opdater Bil");
-                    Console.WriteLine("Indtast RegNr");
-                    RegNr = Console.ReadLine();
-                    Sql_Methods.Select(RegNr);
+                    Console.WriteLine("Opdater Kunde");
+                    Console.WriteLine("Indtast Kunde ID");
+                    KundeID = Console.ReadLine();
+                    Sql_Methods.Select(KundeID);
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D3)
                 {
-                    Console.WriteLine("Slet Bil");
-                    Console.WriteLine("Indtast RegNr");
-                    RegNr = Console.ReadLine();
-                    //SLET BIL MED DET RegNr
+                    Console.WriteLine("Slet Kunde");
+                    Console.WriteLine("Indtast Kunde ID");
+                    KundeID = Console.ReadLine();
+                    //SLET Kunde MED DET Kunde ID
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D4)
                 {
-                    Console.WriteLine("Vis Bil");
-                    Console.WriteLine("Indtast RegNr");
-                    RegNr = Console.ReadLine();
-                    Sql_Methods.Select(RegNr);
-                    Console.ReadLine();
-                }
-                else if (key == ConsoleKey.D5)
-                {
-                    Console.WriteLine("Vis Værkstedsbesøg");
-                    Console.WriteLine("Indtast RegNr");
-                    RegNr = Console.ReadLine();
-                    Sql_Methods.Select(RegNr);
+                    Console.WriteLine("Vis Kunde");
+                    Console.WriteLine("Indtast Kunde ID");
+                    KundeID = Console.ReadLine();
+                    Sql_Methods.Select(KundeID);
                     Console.ReadLine();
                 }
                 else
