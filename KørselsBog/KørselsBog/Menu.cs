@@ -363,7 +363,7 @@ namespace KørselsBog
                     Console.WriteLine("Opdater Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select(RegNr);
+                    Sql_Methods.Select($"SELECT {RegNr} FROM Bil");
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D3)
@@ -379,7 +379,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select(RegNr);
+                    Sql_Methods.Select($"SELECT {RegNr} FROM Bil");
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D5)
@@ -387,7 +387,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Værkstedsbesøg");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select(RegNr);
+                    Sql_Methods.Select($"SELECT {RegNr} FROM Værkstedsbesøg");
                     Console.ReadLine();
                 }
                 else
@@ -496,7 +496,7 @@ namespace KørselsBog
                     Console.WriteLine("Opdater Kunde");
                     Console.WriteLine("Indtast Kunde ID");
                     KundeID = Console.ReadLine();
-                    Sql_Methods.Select(KundeID);
+                    Sql_Methods.Select($"SELECT {KundeID} FROM Kunde");
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D3)
@@ -512,7 +512,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Kunde");
                     Console.WriteLine("Indtast Kunde ID");
                     KundeID = Console.ReadLine();
-                    Sql_Methods.Select(KundeID);
+                    Sql_Methods.Select($"SELECT {KundeID} FROM Kunde");
                     Console.ReadLine();
                 }
                 else
