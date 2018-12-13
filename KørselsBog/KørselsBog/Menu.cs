@@ -14,7 +14,7 @@ namespace KørselsBog
                 if (key == ConsoleKey.D1) {
                     Bil();
                 } else if (key == ConsoleKey.D2) {
-                    Console.WriteLine("Kunde");
+                    Kunde();
                 } else {
                     Console.WriteLine("Indtast gyldig værdi");
                 }
@@ -157,6 +157,141 @@ namespace KørselsBog
                     } while (key != ConsoleKey.O);
 
                     Sql_Methods.opretBil(KundeID,RegNr,Mærke,Model,Brændstoffstype,OprettelsesDato,KmKørt,Årgang);
+                }
+                else if (key == ConsoleKey.D2)
+                {
+                    Console.WriteLine("Opdater Bil");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    Sql_Methods.Select(RegNr);
+                    Console.ReadLine();
+                }
+                else if (key == ConsoleKey.D3)
+                {
+                    Console.WriteLine("Slet Bil");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    //SLET BIL MED DET RegNr
+                    Console.ReadLine();
+                }
+                else if (key == ConsoleKey.D4)
+                {
+                    Console.WriteLine("Vis Bil");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    Sql_Methods.Select(RegNr);
+                    Console.ReadLine();
+                }
+                else if (key == ConsoleKey.D5)
+                {
+                    Console.WriteLine("Vis Værkstedsbesøg");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    Sql_Methods.Select(RegNr);
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Indtast gyldig værdi");
+                }
+                Console.ReadKey();
+            } while (key != ConsoleKey.D1 && key != ConsoleKey.D2);
+        }
+        public void Kunde()
+        {
+            ConsoleKey key = new ConsoleKey();
+            string KundeID, navn, adr;
+            int fødselsdagsdat;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Kunde");
+                Console.WriteLine("1.Opret Kunde\n2.Opdater Kunde\n3.Slet Kunde\n4.Vis Kunde");
+                key = Console.ReadKey().Key;
+                Console.Clear();
+                if (key == ConsoleKey.D1)
+                {
+                    Console.WriteLine("Opret Kunde");
+                    Console.WriteLine("Indtast KundeID");
+                    KundeID = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Navn");
+                    navn = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Adresse");
+                    adr = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Fødselsdagsdato");
+                    fødselsdagsdat = Convert.ToInt32(Console.ReadLine());
+                    Console.Clear();
+                    Console.WriteLine("Indtast OprettelsesDato");
+                    Console.Clear();
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Her er informationen der er registeret.\nTjek om oplysningerne stemmer overens med det ønskede,\nhvis ikke kan du rette det herunder.\n");
+                        Console.WriteLine($"Kunde ID : {KundeID}");
+                        Console.WriteLine($"Navn : {navn}");
+                        Console.WriteLine($"Adresse : {adr}");
+                        Console.WriteLine($"Fødselsdag : {fødselsdagsdat}");
+                        Console.WriteLine($"OprettelsesDato : {OprettelsesDato}");
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("\n\n [r]ediger eller [o]k");
+                        key = Console.ReadKey().Key;
+                        Console.Clear();
+                        if (key == ConsoleKey.R)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Indtast linje nr på det der skal rettes\n");
+                            Console.WriteLine($"1.Kunde ID : {KundeID}");
+                            Console.WriteLine($"2.Navn : {navn}");
+                            Console.WriteLine($"3.Adresse : {adr}");
+                            Console.WriteLine($"4.Fødselsdag : {fødselsdagsdat}");
+                            Console.WriteLine($"5.OprettelsesDato : {OprettelsesDato}");
+                            key = Console.ReadKey().Key;
+                            Console.Clear();
+                            if (key == ConsoleKey.D1)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Indtast KundeID");
+                                KundeID = Console.ReadLine();
+                            }
+                            else if (key == ConsoleKey.D2)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Indtast Navn");
+                                navn = Console.ReadLine();
+                            }
+                            else if (key == ConsoleKey.D3)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Indtast Adresse");
+                                adr = Console.ReadLine();
+                            }
+                            else if (key == ConsoleKey.D4)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Indtast Fødselsdag");
+                                fødselsdagsdat = Console.ReadLine();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Indtast gyldig værdi");
+                                Console.ReadKey();
+                            }
+                        }
+                        else if (key == ConsoleKey.O)
+                        {
+                        }
+                        else
+                        {
+                            Console.WriteLine("Indtast gyldig værdi");
+                            Console.ReadKey();
+                        }
+                    } while (key != ConsoleKey.O);
+
+                    Sql_Methods.opretKunde(KundeID, navn, adr, fødselsdagsdat);
                 }
                 else if (key == ConsoleKey.D2)
                 {
