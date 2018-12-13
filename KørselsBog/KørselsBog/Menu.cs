@@ -31,7 +31,7 @@ namespace KørselsBog
             {
                 Console.Clear();
                 Console.WriteLine("Bil");
-                Console.WriteLine("1.Opret Bil\n2.Opdater Bil\n4.Slet Bil\n5.Vis Bil\n6.Vis Værkstedsbesøg");
+                Console.WriteLine("1.Opret Bil\n2.Opdater Bil\n3.Slet Bil\n4.Vis Bil\n5.Vis Værkstedsbesøg");
                 key = Console.ReadKey().Key;
                 Console.Clear();
                 if (key == ConsoleKey.D1)
@@ -166,7 +166,30 @@ namespace KørselsBog
                     Sql_Methods.Select(RegNr);
                     Console.ReadLine();
                 }
-
+                else if (key == ConsoleKey.D3)
+                {
+                    Console.WriteLine("Slet Bil");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    //SLET BIL MED DET RegNr
+                    Console.ReadLine();
+                }
+                else if (key == ConsoleKey.D4)
+                {
+                    Console.WriteLine("Vis Bil");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    Sql_Methods.Select(RegNr);
+                    Console.ReadLine();
+                }
+                else if (key == ConsoleKey.D5)
+                {
+                    Console.WriteLine("Vis Værkstedsbesøg");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    Sql_Methods.Select(RegNr);
+                    Console.ReadLine();
+                }
                 else
                 {
                     Console.WriteLine("Indtast gyldig værdi");
