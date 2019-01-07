@@ -11,7 +11,7 @@ namespace KørselsBog
     class Sql_Methods
     {
         //ConnectionString
-        private static string ConnectionString = "Data Source=Skab5-PC-01;Initial Catalog=H1Case; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static string ConnectionString = "Data Source=(local);Initial Catalog=H1Case; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public static void opretKunde(string KundeID, string navn, string adr, int fødselsdagsdato)
         {
             string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + fødselsdagsdato + ")");
