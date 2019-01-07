@@ -11,9 +11,9 @@ namespace KørselsBog
         static void Main(string[] args)
         {
             Console.WriteLine("Hello");
-            //Menu M = new Menu();
-            Sql_Methods.Select("Select * from bil");
+            Menu M = new Menu();
             Console.ReadKey();
+            /* "DO YOU KNOW DA WEI" */
 //⢀⢀⢀⢀⢀⢀⢀⢀⢀⢀⠶⣿⣭⡧⡤⣤⣻⣛⣹⣿⣿⣿⣶⣄
 //⢀⢀⢀⢀⢀⢀⢀⢀⢀⣼⣊⣤⣶⣷⣶⣧⣤⣽⣿⣿⣿⣿⣿⣿⣷
 //⢀⢀⢀⢀⢀⢀⢀⢀⢀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇

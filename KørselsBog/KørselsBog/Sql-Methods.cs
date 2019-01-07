@@ -56,16 +56,16 @@ namespace KørselsBog
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
                 adapter.Fill(table);
 
-                //foreach (DataRow kunde in table.Rows)
-                //{
-                //    Console.WriteLine(kunde["Kundeid"].ToString());
-                //    Console.WriteLine(kunde["navn"].ToString());
-                //    Console.WriteLine(kunde["adr"].ToString());
-                //    Console.WriteLine(kunde["fødselsdato"].ToString());
-                //    Console.WriteLine();
-                //}
-                //string denførsterække = table.Rows[0]["navn"].ToString();
-                Console.WriteLine(table);
+                foreach (DataRow kunde in table.Rows)
+                {
+                    Console.WriteLine(kunde["Kundeid"].ToString());
+                    Console.WriteLine(kunde["Navn"].ToString());
+                    Console.WriteLine(kunde["Adresse"].ToString());
+                    Console.WriteLine(kunde["Fødselsdato"].ToString());
+                    Console.WriteLine();
+                }
+                string denførsterække = table.Rows[0]["navn"].ToString();
+                //Console.WriteLine(table);
             }
         }
         public static void DeleteKunde(string KundeID)
