@@ -163,17 +163,8 @@ namespace KørselsBog
                     Console.WriteLine("Opdater Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select($"SELECT KundeID FROM Bil WHERE RegNr = {RegNr}");
+                    Sql_Methods.Redigere(insert )
                     Console.Clear();
-                    Console.WriteLine("Indtast linje nr på det der skal rettes\n");
-                    Console.WriteLine($"1.Kunde ID : {KundeID}");
-                    Console.WriteLine($"2.Registreringsnummer : {RegNr}");
-                    Console.WriteLine($"3.Mærke : {Mærke}");
-                    Console.WriteLine($"4.Model : {Model}");
-                    Console.WriteLine($"5.Brændstoffstype : {Brændstoffstype}");
-                    Console.WriteLine($"6.OprettelsesDato : {OprettelsesDato}");
-                    Console.WriteLine($"7.Kilometer kørt : {KmKørt}");
-                    Console.WriteLine($"8.Årgang : {Årgang}");
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D3)
