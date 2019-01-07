@@ -51,7 +51,7 @@ namespace KørselsBog
         }
         #endregion
         //"DELETE FROM Bil WHERE RegNr = {RegNr}"
-        private static void DeleteFromBil(string regnr)
+        public static void DeleteFromBil(string regnr)
         {
             string statement = ("DELETE * FROM Bil WHERE " + regnr);
             Sql_Methods.Sqlstatment(statement);

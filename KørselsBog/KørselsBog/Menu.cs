@@ -163,8 +163,8 @@ namespace KørselsBog
                     Console.WriteLine("Opdater Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Redigere(insert )
-                    Console.Clear();
+                    //Sql_Methods.Redigere(insert )
+                    //Console.Clear();
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D3)
@@ -172,7 +172,7 @@ namespace KørselsBog
                     Console.WriteLine("Slet Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select($"DELETE FROM Bil WHERE RegNr = {RegNr}");
+                    Sql_Methods.DeleteFromBil(RegNr);
                     //SLET BIL MED DET RegNr
                     Console.ReadLine();
                 }
@@ -181,7 +181,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select($"SELECT {RegNr} FROM Bil");
+                    Sql_Methods.SelectBil(RegNr);
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D5)
@@ -189,7 +189,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Værkstedsbesøg");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select($"SELECT * FROM Værkstedsbesøg WHERE ");//Skal rettes til Select-værkstedsbesøg(RegNr)
+                    Sql_Methods.SelectVærkstedsbesøg(RegNr);
                     Console.ReadLine();
                 }
                 else
@@ -298,7 +298,7 @@ namespace KørselsBog
                     Console.WriteLine("Opdater Kunde");
                     Console.WriteLine("Indtast Kunde ID");
                     KundeID = Console.ReadLine();
-                    Sql_Methods.Select($"SELECT {KundeID} FROM Kunde");
+                    //Sql_Methods.Select($"SELECT {KundeID} FROM Kunde");
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D3)
@@ -315,7 +315,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Kunde");
                     Console.WriteLine("Indtast Kunde ID");
                     KundeID = Console.ReadLine();
-                    Sql_Methods.Select($"SELECT {KundeID} FROM Kunde");
+                    Sql_Methods.SelectKunder(KundeID);
                     Console.ReadLine();
                 }
                 else
