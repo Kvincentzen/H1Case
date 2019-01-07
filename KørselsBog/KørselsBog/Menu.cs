@@ -56,10 +56,10 @@ namespace KørselsBog
                     OprettelsesDato = Convert.ToString(DateTime.Now.ToString("d/M/yyyy"));
                     Console.Clear();
                     Console.WriteLine("Indtast Kmkørt");
-                    KmKørt = Convert.ToInt16(Console.ReadLine());
+                    KmKørt = Convert.ToInt32(Console.ReadLine());
                     Console.Clear();
                     Console.WriteLine("Indtast Årgang");
-                    Årgang = Convert.ToInt16(Console.ReadLine());
+                    Årgang = Convert.ToInt32(Console.ReadLine());
                     Console.Clear();
                     do
                     {
@@ -132,13 +132,13 @@ namespace KørselsBog
                             {
                                 Console.Clear();
                                 Console.WriteLine("Indtast Kmkørt");
-                                KmKørt = Convert.ToInt16(Console.ReadLine());
+                                KmKørt = Convert.ToInt32(Console.ReadLine());
                             }
                             else if (key == ConsoleKey.D8)
                             {
                                 Console.Clear();
                                 Console.WriteLine("Indtast Årgang");
-                                Årgang = Convert.ToInt16(Console.ReadLine());
+                                Årgang = Convert.ToInt32(Console.ReadLine());
                             }
                             else
                             {
@@ -163,7 +163,17 @@ namespace KørselsBog
                     Console.WriteLine("Opdater Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select($"SELECT {RegNr} FROM Bil");
+                    Sql_Methods.Select($"SELECT KundeID FROM Bil WHERE RegNr = {RegNr}");
+                    Console.Clear();
+                    Console.WriteLine("Indtast linje nr på det der skal rettes\n");
+                    Console.WriteLine($"1.Kunde ID : {KundeID}");
+                    Console.WriteLine($"2.Registreringsnummer : {RegNr}");
+                    Console.WriteLine($"3.Mærke : {Mærke}");
+                    Console.WriteLine($"4.Model : {Model}");
+                    Console.WriteLine($"5.Brændstoffstype : {Brændstoffstype}");
+                    Console.WriteLine($"6.OprettelsesDato : {OprettelsesDato}");
+                    Console.WriteLine($"7.Kilometer kørt : {KmKørt}");
+                    Console.WriteLine($"8.Årgang : {Årgang}");
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D3)
@@ -188,7 +198,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Værkstedsbesøg");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.Select($"SELECT {RegNr} FROM Værkstedsbesøg");
+                    Sql_Methods.Select($"SELECT * FROM Værkstedsbesøg WHERE ");//Skal rettes til Select-værkstedsbesøg(RegNr)
                     Console.ReadLine();
                 }
                 else
