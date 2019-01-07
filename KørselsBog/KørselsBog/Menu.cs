@@ -171,6 +171,7 @@ namespace KørselsBog
                     Console.WriteLine("Slet Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
+                    Sql_Methods.Select($"DELETE FROM Bil WHERE RegNr = {RegNr}");
                     //SLET BIL MED DET RegNr
                     Console.ReadLine();
                 }
@@ -305,6 +306,7 @@ namespace KørselsBog
                     Console.WriteLine("Indtast Kunde ID");
                     KundeID = Console.ReadLine();
                     //SLET Kunde MED DET Kunde ID
+                    Sql_Methods.DeleteKunde("");//Ændringer skal laves i Sql_Methods.cs derefter skal denne udfyldes med kundeid
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D4)
