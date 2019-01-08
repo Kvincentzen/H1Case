@@ -10,8 +10,8 @@ namespace KørselsBog
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
-            Menu M = new Menu();
+            Menu menu = new Menu();
+            menu.Hovedmenu();
             Console.ReadKey();
 
         }

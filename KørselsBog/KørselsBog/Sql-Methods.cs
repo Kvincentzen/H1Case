@@ -22,7 +22,7 @@ namespace KørselsBog
             }
         }
         #region Oprettelser
-        public static void opretKunde(string KundeID, string navn, string adr, int fødselsdagsdato)
+        public static void opretKunde(string KundeID, string navn, string adr, string fødselsdagsdato)
         {
             string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + fødselsdagsdato + ")");
             //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
