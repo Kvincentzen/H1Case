@@ -116,7 +116,7 @@ namespace KørselsBog
         }
         public static void DeleteFromKunder(string KundeID)
         {
-            string statement = ("DELETE FROM Kunder WHERE KundeID = '" + KundeID + "'");
+            string statement = ("DELETE FROM Kunder WHERE KundeID = '" + KundeID + "', ""DELETE FROM Bil WHERE RegNr = '" + regnr + "'");
             Sql_Methods.Sqlstatment(statement);
         }
         public static void DeleteFromVærksted(string regnr)
