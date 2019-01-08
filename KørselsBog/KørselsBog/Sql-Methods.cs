@@ -34,23 +34,6 @@ namespace KørselsBog
         #endregion
 
         #region Selects
-        //public static void SelectBil(string regnr)
-        //{
-        //    string statement = ("SELECT * FROM Bil WHERE " + regnr);
-        //    Sql_Methods.Sqlstatment(statement);
-        //}
-        //public static void SelectKunder(string KundeID)
-        //{
-        //    string statement = ("SELECT * FROM Kunder WHERE " + KundeID);
-        //    Sql_Methods.Sqlstatment(statement);
-        //}
-        //public static void SelectVærkstedsbesøg(string regnr)
-        //{
-        //    string statement = ("SELECT * FROM Værstedsbesøg WHERE " + regnr);
-        //    Sql_Methods.Sqlstatment(statement);
-        //}
-        #endregion
-        //"DELETE FROM Bil WHERE RegNr = {RegNr}"
         public static void DeleteFromBil(string regnr)
         {
             string statement = ("DELETE * FROM Bil WHERE " + regnr);
@@ -82,7 +65,6 @@ namespace KørselsBog
                     Console.WriteLine(kunder["Fødselsdato"].ToString());
                     Console.WriteLine();
                 }
-                //string denførsterække = table.Rows[1]["navn"].ToString();
                 Console.WriteLine(table);
             }
         }
@@ -107,7 +89,6 @@ namespace KørselsBog
                     Console.WriteLine(Bil["Årgangkørt"].ToString());
                     Console.WriteLine();
                 }
-                //string denførsterække = table.Rows[1]["navn"].ToString();
                 Console.WriteLine(table);
             }
         }
@@ -128,10 +109,10 @@ namespace KørselsBog
                     Console.WriteLine(Værkstedsbesøg["RegNr"].ToString());
                     Console.WriteLine();
                 }
-                //string denførsterække = table.Rows[1]["navn"].ToString();
                 Console.WriteLine(table);
             }
         }
+#endregion
         public static void DeleteKunde(string KundeID)
         {
 
