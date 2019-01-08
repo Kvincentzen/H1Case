@@ -13,8 +13,8 @@ namespace KørselsBog
                 Console.Clear();
                 if (key == ConsoleKey.D1) {
                     Bil();
-                //} else if (key == ConsoleKey.D2) {
-                //    Kunde();
+                } else if (key == ConsoleKey.D2) {
+                    Kunde();
                 } else {
                     Console.WriteLine("Indtast gyldig værdi");
                 }
