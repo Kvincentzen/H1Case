@@ -189,7 +189,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Værkstedsbesøg");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.SelectVærkstedsbesøg(RegNr);
+                    //Sql_Methods.SelectVærkstedsbesøg(RegNr);
                     Console.ReadLine();
                 }
                 else
@@ -315,8 +315,13 @@ namespace KørselsBog
                     Console.WriteLine("Vis Kunde");
                     Console.WriteLine("Indtast Kunde ID");
                     KundeID = Console.ReadLine();
-                    Sql_Methods.SelectKunder(KundeID);
+                    Console.Clear();
+                    Sql_Methods.SelectKunder($"SELECT * FROM Kunder WHERE KundeID = " + KundeID);
                     Console.ReadLine();
+                }
+                else if (key == ConsoleKey.D5)
+                {
+                    break;//sender brugeren ud til bil og kunde menuen
                 }
                 else
                 {
