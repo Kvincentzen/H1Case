@@ -3,7 +3,8 @@ namespace KørselsBog
 {
     public class Menu
     {
-        public Menu()
+        #region Hovedmenu
+        public void Hovedmenu()
         {   
             ConsoleKey key = new ConsoleKey();
             do {
@@ -21,7 +22,9 @@ namespace KørselsBog
                 Console.ReadKey();
             } while (key != ConsoleKey.D1 && key != ConsoleKey.D2);
         }
-        public void Bil()
+        #endregion
+        #region Bilmenu
+        private void Bil()
         {
             ConsoleKey key = new ConsoleKey();
             string KundeID, RegNr, Mærke, Model, Brændstoffstype, OprettelsesDato;
@@ -31,7 +34,7 @@ namespace KørselsBog
             {
                 Console.Clear();
                 Console.WriteLine("Bil");
-                Console.WriteLine("1.Opret Bil\n2.Opdater Bil\n3.Slet Bil\n4.Vis Bil\n5.Vis Værkstedsbesøg");
+                Console.WriteLine("1.Opret Bil\n2.Opdater Bil\n3.Slet Bil\n4.Vis Bil\n5.Vis Værkstedsbesøg\n6.Tilbage til hovedmenuen");
                 key = Console.ReadKey().Key;
                 Console.Clear();
                 if (key == ConsoleKey.D1)
@@ -163,9 +166,7 @@ namespace KørselsBog
                     Console.WriteLine("Opdater Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    //Sql_Methods.Redigere(insert )
-                    //Console.Clear();
-                    Console.ReadLine();
+                    Sql_Methods.UpdateFromBil(RegNr);
                 }
                 else if (key == ConsoleKey.D3)
                 {
@@ -192,6 +193,10 @@ namespace KørselsBog
                     //Sql_Methods.SelectVærkstedsbesøg(RegNr);
                     Console.ReadLine();
                 }
+                else if (key == ConsoleKey.D6)
+                {
+                    Hovedmenu();
+                }
                 else
                 {
                     Console.WriteLine("Indtast gyldig værdi");
@@ -199,16 +204,17 @@ namespace KørselsBog
                 Console.ReadKey();
             } while (key != ConsoleKey.D1 && key != ConsoleKey.D2);
         }
-        public void Kunde()
+        #endregion
+        #region Kundemenu
+        private void Kunde()
         {
             ConsoleKey key = new ConsoleKey();
-            string KundeID, navn, adr;
-            int fødselsdagsdat;
+            string KundeID, navn, adr, fødselsdagsdat;
             do
             {
                 Console.Clear();
                 Console.WriteLine("Kunde");
-                Console.WriteLine("1.Opret Kunde\n2.Opdater Kunde\n3.Slet Kunde\n4.Vis Kunde");
+                Console.WriteLine("1.Opret Kunde\n2.Opdater Kunde\n3.Slet Kunde\n4.Vis Kunde\n5.Tilbage til hovedmenuen");
                 key = Console.ReadKey().Key;
                 Console.Clear();
                 if (key == ConsoleKey.D1)
@@ -224,7 +230,7 @@ namespace KørselsBog
                     adr = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("Indtast Fødselsdagsdato");
-                    fødselsdagsdat = Convert.ToInt32(Console.ReadLine());
+                    fødselsdagsdat = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("Indtast OprettelsesDato");
                     Console.Clear();
@@ -273,7 +279,7 @@ namespace KørselsBog
                             {
                                 Console.Clear();
                                 Console.WriteLine("Indtast Fødselsdag");
-                                fødselsdagsdat = Convert.ToInt32(Console.ReadLine());
+                                fødselsdagsdat = Console.ReadLine();
                             }
                             else
                             {
@@ -306,9 +312,8 @@ namespace KørselsBog
                     Console.WriteLine("Slet Kunde");
                     Console.WriteLine("Indtast Kunde ID");
                     KundeID = Console.ReadLine();
-                    //SLET Kunde MED DET Kunde ID
-                    Sql_Methods.DeleteKunde("");//Ændringer skal laves i Sql_Methods.cs derefter skal denne udfyldes med kundeid
-                    Console.ReadLine();
+                    Sql_Methods.DeleteFromBil(KundeID);
+                    Sql_Methods.DeleteFromKunder(KundeID);
                 }
                 else if (key == ConsoleKey.D4)
                 {
@@ -317,11 +322,10 @@ namespace KørselsBog
                     KundeID = Console.ReadLine();
                     Console.Clear();
                     Sql_Methods.SelectKunder($"SELECT * FROM Kunder WHERE KundeID = " + KundeID);
-                    Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D5)
                 {
-                    break;//sender brugeren ud til bil og kunde menuen
+                    Hovedmenu();
                 }
                 else
                 {
@@ -330,5 +334,6 @@ namespace KørselsBog
                 Console.ReadKey();
             } while (key != ConsoleKey.D1 && key != ConsoleKey.D2);
         }
+        #endregion
     }
 }
