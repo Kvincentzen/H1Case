@@ -319,6 +319,10 @@ namespace KørselsBog
                     Sql_Methods.SelectKunder($"SELECT * FROM Kunder WHERE KundeID = " + KundeID);
                     Console.ReadLine();
                 }
+                else if (key == ConsoleKey.D5)
+                {
+                    break;//sender brugeren ud til bil og kunde menuen
+                }
                 else
                 {
                     Console.WriteLine("Indtast gyldig værdi");
