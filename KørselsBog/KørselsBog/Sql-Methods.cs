@@ -34,21 +34,21 @@ namespace KørselsBog
         #endregion
 
         #region Selects
-        public static void SelectBil(string regnr)
-        {
-            string statement = ("SELECT * FROM Bil WHERE " + regnr);
-            Sql_Methods.Sqlstatment(statement);
-        }
+        //public static void SelectBil(string regnr)
+        //{
+        //    string statement = ("SELECT * FROM Bil WHERE " + regnr);
+        //    Sql_Methods.Sqlstatment(statement);
+        //}
         //public static void SelectKunder(string KundeID)
         //{
         //    string statement = ("SELECT * FROM Kunder WHERE " + KundeID);
         //    Sql_Methods.Sqlstatment(statement);
         //}
-        public static void SelectVærkstedsbesøg(string regnr)
-        {
-            string statement = ("SELECT * FROM Værstedsbesøg WHERE " + regnr);
-            Sql_Methods.Sqlstatment(statement);
-        }
+        //public static void SelectVærkstedsbesøg(string regnr)
+        //{
+        //    string statement = ("SELECT * FROM Værstedsbesøg WHERE " + regnr);
+        //    Sql_Methods.Sqlstatment(statement);
+        //}
         #endregion
         //"DELETE FROM Bil WHERE RegNr = {RegNr}"
         public static void DeleteFromBil(string regnr)
@@ -80,6 +80,52 @@ namespace KørselsBog
                     Console.WriteLine(kunder["Navn"].ToString());
                     Console.WriteLine(kunder["Adresse"].ToString());
                     Console.WriteLine(kunder["Fødselsdato"].ToString());
+                    Console.WriteLine();
+                }
+                //string denførsterække = table.Rows[1]["navn"].ToString();
+                Console.WriteLine(table);
+            }
+        }
+        public static void SelectBil(string sql)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                adapter.Fill(table);
+
+                foreach (DataRow Bil in table.Rows)
+                {
+                    Console.WriteLine(Bil["KundeId"].ToString());
+                    Console.WriteLine(Bil["RegNr"].ToString());
+                    Console.WriteLine(Bil["Mærke"].ToString());
+                    Console.WriteLine(Bil["Model"].ToString());
+                    Console.WriteLine(Bil["Brændstoff"].ToString());
+                    Console.WriteLine(Bil["Oprettelsesdato"].ToString());
+                    Console.WriteLine(Bil["KmKørt"].ToString());
+                    Console.WriteLine(Bil["Årgangkørt"].ToString());
+                    Console.WriteLine();
+                }
+                //string denførsterække = table.Rows[1]["navn"].ToString();
+                Console.WriteLine(table);
+            }
+        }
+        public static void SelectVærksted(string sql)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
+                adapter.Fill(table);
+
+                foreach (DataRow Værkstedsbesøg in table.Rows)
+                {
+                    Console.WriteLine(Værkstedsbesøg["DatoAnkomst"].ToString());
+                    Console.WriteLine(Værkstedsbesøg["DatoAfgang"].ToString());
+                    Console.WriteLine(Værkstedsbesøg["Makinker"].ToString());
+                    Console.WriteLine(Værkstedsbesøg["RegNr"].ToString());
                     Console.WriteLine();
                 }
                 //string denførsterække = table.Rows[1]["navn"].ToString();
