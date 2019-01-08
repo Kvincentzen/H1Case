@@ -12,33 +12,6 @@ namespace KørselsBog
     {
         //ConnectionString
         private static string ConnectionString = "Data Source=(local);Initial Catalog=H1Case; Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        #region Oprettelser
-        public static void opretKunde(string KundeID, string navn, string adr, int fødselsdagsdato)
-        {
-            string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + fødselsdagsdato + ")");
-            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
-            Sql_Methods.Sqlstatment(statement);
-        }
-        public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype,string OprettelsesDato, int KmKørt, int Årgang)
-        {
-            string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "','" + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "','" + KmKørt + "'," + Årgang +")");
-            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
-            Sql_Methods.Sqlstatment(statement);
-        }
-        public static void opretVærkstedsbesøg(int DatoAnkomst, int Datoafgang, string Mekaniker,string RegNr)
-        {
-            string statement = ("insert into værkstedsbesøg values ('" + DatoAnkomst + "','" + Datoafgang + "','" + Mekaniker + "','" + RegNr + "')");
-            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
-            Sql_Methods.Sqlstatment(statement);
-        }
-        #endregion
-
-        #region Selects
-        public static void DeleteFromBil(string regnr)
-        {
-            string statement = ("DELETE * FROM Bil WHERE " + regnr);
-            Sql_Methods.Sqlstatment(statement);
-        }
         private static void Sqlstatment(string sql)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -48,6 +21,28 @@ namespace KørselsBog
                 cmd.ExecuteNonQuery();
             }
         }
+        #region Oprettelser
+        public static void opretKunde(string KundeID, string navn, string adr, int fødselsdagsdato)
+        {
+            string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + fødselsdagsdato + ")");
+            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
+            Sql_Methods.Sqlstatment(statement);
+        }
+        public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype, string OprettelsesDato, int KmKørt, int Årgang)
+        {
+            string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "','" + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "','" + KmKørt + "'," + Årgang + ")");
+            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
+            Sql_Methods.Sqlstatment(statement);
+        }
+        public static void opretVærkstedsbesøg(int DatoAnkomst, int Datoafgang, string Mekaniker, string RegNr)
+        {
+            string statement = ("insert into værkstedsbesøg values ('" + DatoAnkomst + "','" + Datoafgang + "','" + Mekaniker + "','" + RegNr + "')");
+            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
+            Sql_Methods.Sqlstatment(statement);
+        }
+        #endregion
+
+        #region Selects
         public static void SelectKunder(string sql)
         {
             DataTable table = new DataTable();
@@ -112,11 +107,19 @@ namespace KørselsBog
                 Console.WriteLine(table);
             }
         }
-#endregion
-        public static void DeleteKunde(string KundeID)
+        #endregion
+        #region Update/Delete
+        public static void DeleteFromBil(string regnr)
         {
-
+            string statement = ("DELETE FROM Bil WHERE RegNr = '" + regnr+"'");
+            Sql_Methods.Sqlstatment(statement);
         }
+        public static void UpdateFromBil(string regnr)
+        {
+            string statement = ("Update FROM Bil WHERE RegNr = '" + regnr+"'");
+            Sql_Methods.Sqlstatment(statement);
+        }
+        #endregion
 
     }
 }
