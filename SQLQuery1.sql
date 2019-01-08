@@ -9,7 +9,7 @@ Create Table Kunder
 	KundeID INT NOT NULL Primary key,
 	Navn VARCHAR(30),
 	Adresse VARCHAR (50),
-	Fødselsdato INT 
+	Fødselsdato INT
 );
 Create Table Bil
 (
@@ -30,5 +30,7 @@ Create Table Værkstedsbesøg
 	DatoAfgang Varchar(6),
 	Mekaniker Varchar(20),
 	RegNr Varchar(7),
+	KundeID INT,
+	Foreign key(KundeID) References Kunder(KundeID),
 	Foreign key(RegNr) References Bil(RegNr)
 );
