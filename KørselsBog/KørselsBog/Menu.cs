@@ -398,7 +398,7 @@ namespace KørselsBog
         {
             Console.WriteLine("Kundeoversigt");
             Console.WriteLine("-------------");
-            Sql_Methods.SelectKunder($"SELECT KundeID, Navn, Adresse, Fødselsdato FROM Kunder ORDER BY Navn ASC");
+            Sql_Methods.SelectKunder($"SELECT KundeID, Navn, Adresse, Fødselsdato, Oprettelsesdato FROM Kunder ORDER BY Navn ASC");
         }
     }
 }
