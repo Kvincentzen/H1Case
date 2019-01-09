@@ -54,7 +54,7 @@ namespace KørselsBog
                     Console.WriteLine("KundeID = "+kunder["KundeId"].ToString());
                     Console.WriteLine("Navn "+kunder["Navn"].ToString());
                     Console.WriteLine("Adresse = "+kunder["Adresse"].ToString());
-                    Console.WriteLine("Fødselsdato ="+kunder["Fødselsdato"].ToString());
+                    Console.WriteLine("Fødselsdato = "+kunder["Fødselsdato"].ToString());
                     Console.WriteLine();
                 }
                 Console.WriteLine(table);
@@ -123,9 +123,18 @@ namespace KørselsBog
             string statement = ("DELETE FROM Værkstedsbesøg WHERE RegNr = '" + regnr + "' and DatoAnkomst = " + datoankomst);
             Sql_Methods.Sqlstatment(statement);
         }
-        public static void UpdateFromBil(string regnr)
+        public static void UpdateBil(string regnr, string KundeID, string mærke, string model, string brændstof, string opretdato, string kmkørt, int årgang)
         {
-            string statement = ("Update FROM Bil WHERE RegNr = '" + regnr+"'");
+            string statement = ("Update Bil SET KundeID = '"+KundeID+"',Mærke = '"+mærke+"', Model = '"+model+"',Brændstoff = '"+brændstof+"', Oprettelsesdato = '"+opretdato+"', kmkørt = '"+kmkørt+"', Årgang = "+årgang+"WHERE RegNr = '" + regnr+"';");
+            Sql_Methods.Sqlstatment(statement);
+        }
+        public static void UpdateKunde(string KundeID, string navn, string adresse, string fødselsdagsdato)
+        {
+            string statement = ("Update Kunder SET Navn = '" + navn + "',Adresse = '" + adresse + "', Fødselsdato = '" + fødselsdagsdato + "' WHERE KundeID = '" + KundeID + "';");
+        }
+        public static void UpdateVærkstedsbesøg(string regnr, string DatoAnkomst, string Datoafgang, string Mekaniker)
+        {
+            string statement = ("Update Værkstedsbesøg SET Datoankomst = '" + DatoAnkomst + "', Datoafgang = '" + Datoafgang + "',Mekaniker = '" + Mekaniker + "',WHERE RegNr = '" + regnr + "';");
             Sql_Methods.Sqlstatment(statement);
         }
         #endregion
