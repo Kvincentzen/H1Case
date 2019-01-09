@@ -29,8 +29,5 @@ Create Table Værkstedsbesøg
 	DatoAnkomst Varchar(6),
 	DatoAfgang Varchar(6),
 	Mekaniker Varchar(20),
-	RegNr Varchar(7),
-	KundeID INT,
-	Foreign key(KundeID) References Kunder(KundeID),
-	Foreign key(RegNr) References Bil(RegNr)
+	RegNr Varchar(7)
 );
