@@ -54,8 +54,8 @@ namespace KørselsBog
                     Console.WriteLine("KundeID = "+kunder["KundeId"].ToString());
                     Console.WriteLine("Navn "+kunder["Navn"].ToString());
                     Console.WriteLine("Adresse = "+kunder["Adresse"].ToString());
-                    Console.WriteLine("Fødselsdato = "+kunder["Fødselsdato"].ToString());
                     Console.WriteLine("Oprettelsesdato = " + kunder["Oprettelsesdato"].ToString());
+                    Console.WriteLine("Fødselsdato = "+kunder["Fødselsdato"].ToString());
                     Console.WriteLine();
                 }
                 Console.WriteLine(table);
