@@ -188,6 +188,7 @@ namespace KørselsBog
                     Console.WriteLine("Indtast OprettelsesDato");
                     OprettelsesDato = Convert.ToString(DateTime.Now.ToString("d/M/yyyy"));
                     Console.Clear();
+
                     Console.WriteLine("Indtast Kmkørt");
                     KmKørt = Convert.ToInt32(Console.ReadLine());
                     Console.Clear();
@@ -195,6 +196,7 @@ namespace KørselsBog
                     Årgang = Convert.ToInt32(Console.ReadLine());
                     Console.Clear();
                     Sql_Methods.UpdateBil(RegNr, KundeID, Mærke, Model, Brændstoffstype, OprettelsesDato, KmKørt.ToString(),Årgang);
+                    Bil();
                 }
                 else if (key == ConsoleKey.D3)
                 {
