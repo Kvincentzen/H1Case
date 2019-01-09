@@ -16,7 +16,13 @@ namespace KørselsBog
                     Bil();
                 } else if (key == ConsoleKey.D2) {
                     Kunde();
-                } else {
+
+                }
+                else if (key == ConsoleKey.D3)
+                {
+                    Kundeoversigt();
+                }
+                else {
                     Console.WriteLine("Indtast gyldig værdi");
                 }
                 Console.ReadKey();
@@ -355,5 +361,12 @@ namespace KørselsBog
             } while (key != ConsoleKey.D1 && key != ConsoleKey.D2);
         }
         #endregion
+        public void Kundeoversigt()
+        {
+            Console.WriteLine("Kundeoversigt");
+            //SELECT KundeID, Navn, Adresse, Fødselsdato
+            //FROM Kunder
+            //ORDER BY Navn ASC;
+        }
     }
 }
