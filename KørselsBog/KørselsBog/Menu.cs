@@ -9,7 +9,7 @@ namespace KørselsBog
             ConsoleKey key = new ConsoleKey();
             do {
                 Console.Clear();
-                Console.WriteLine("1.Bil\n2.Kunde");
+                Console.WriteLine("1.Bil\n2.Kunde\n3.Kundeoversigt");
                 key = Console.ReadKey().Key;
                 Console.Clear();
                 if (key == ConsoleKey.D1) {
@@ -58,7 +58,7 @@ namespace KørselsBog
                     Console.WriteLine("Indtast Model");
                     Model = Console.ReadLine();
                     Console.Clear();
-                    Console.WriteLine("Indtast Brændstoffstype");
+                    Console.WriteLine("Indtast Brændstofstype");
                     Brændstoffstype = Console.ReadLine();
                     Console.Clear();
                     Console.WriteLine("Indtast OprettelsesDato");
@@ -78,7 +78,7 @@ namespace KørselsBog
                         Console.WriteLine($"Registreringsnummer : {RegNr}");
                         Console.WriteLine($"Mærke : {Mærke}");
                         Console.WriteLine($"Model : {Model}");
-                        Console.WriteLine($"Brændstoffstype : {Brændstoffstype}");
+                        Console.WriteLine($"Brændstofstype : {Brændstoffstype}");
                         Console.WriteLine($"OprettelsesDato : {OprettelsesDato}");
                         Console.WriteLine($"Kilometer kørt : {KmKørt}");
                         Console.WriteLine($"Årgang : {Årgang}");
@@ -95,7 +95,7 @@ namespace KørselsBog
                             Console.WriteLine($"2.Registreringsnummer : {RegNr}");
                             Console.WriteLine($"3.Mærke : {Mærke}");
                             Console.WriteLine($"4.Model : {Model}");
-                            Console.WriteLine($"5.Brændstoffstype : {Brændstoffstype}");
+                            Console.WriteLine($"5.Brændstofstype : {Brændstoffstype}");
                             Console.WriteLine($"6.OprettelsesDato : {OprettelsesDato}");
                             Console.WriteLine($"7.Kilometer kørt : {KmKørt}");
                             Console.WriteLine($"8.Årgang : {Årgang}");
@@ -128,7 +128,7 @@ namespace KørselsBog
                             else if (key == ConsoleKey.D5)
                             {
                                 Console.Clear();
-                                Console.WriteLine("Indtast Brændstoffstype");
+                                Console.WriteLine("Indtast Brændstofstype");
                                 Brændstoffstype = Console.ReadLine();
                             }
                             else if (key == ConsoleKey.D6)
@@ -172,7 +172,29 @@ namespace KørselsBog
                     Console.WriteLine("Opdater Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.UpdateFromBil(RegNr);
+                    Console.Clear();
+                    Console.WriteLine("Indtast KundeID");
+                    KundeID = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Mærke");
+                    Mærke = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Model");
+                    Model = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Brændstofstype");
+                    Brændstoffstype = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast OprettelsesDato");
+                    OprettelsesDato = Convert.ToString(DateTime.Now.ToString("d/M/yyyy"));
+                    Console.Clear();
+                    Console.WriteLine("Indtast Kmkørt");
+                    KmKørt = Convert.ToInt32(Console.ReadLine());
+                    Console.Clear();
+                    Console.WriteLine("Indtast Årgang");
+                    Årgang = Convert.ToInt32(Console.ReadLine());
+                    Console.Clear();
+                    Sql_Methods.UpdateBil(RegNr, KundeID, Mærke, Model, Brændstoffstype, OprettelsesDato, KmKørt.ToString(),Årgang);
                 }
                 else if (key == ConsoleKey.D3)
                 {
