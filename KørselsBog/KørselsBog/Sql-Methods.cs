@@ -78,7 +78,7 @@ namespace KørselsBog
                     Console.WriteLine(Bil["Brændstoff"].ToString());
                     Console.WriteLine(Bil["Oprettelsesdato"].ToString());
                     Console.WriteLine(Bil["KmKørt"].ToString());
-                    Console.WriteLine(Bil["Årgangkørt"].ToString());
+                    Console.WriteLine(Bil["Årgang"].ToString());
                     Console.WriteLine();
                 }
                 Console.WriteLine(table);
