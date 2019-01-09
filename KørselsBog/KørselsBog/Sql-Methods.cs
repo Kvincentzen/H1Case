@@ -97,7 +97,7 @@ namespace KørselsBog
                 {
                     Console.WriteLine(Værkstedsbesøg["DatoAnkomst"].ToString());
                     Console.WriteLine(Værkstedsbesøg["DatoAfgang"].ToString());
-                    Console.WriteLine(Værkstedsbesøg["Makinker"].ToString());
+                    Console.WriteLine(Værkstedsbesøg["Mekaniker"].ToString());
                     Console.WriteLine(Værkstedsbesøg["RegNr"].ToString());
                     Console.WriteLine();
                 }
