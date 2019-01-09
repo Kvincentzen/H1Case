@@ -190,7 +190,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Værkstedsbesøg");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.SelectVærksted($"SELECT * FROM Værkstedsbesøg WHERE regnr = '" + RegNr);
+                    Sql_Methods.SelectVærksted($"SELECT * FROM Værkstedsbesøg WHERE regnr = '" + RegNr + "'");
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D6)
