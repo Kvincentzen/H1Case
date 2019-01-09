@@ -22,9 +22,9 @@ namespace KørselsBog
             }
         }
         #region Oprettelser
-        public static void opretKunde(string KundeID, string navn, string adr, string fødselsdagsdato)
+        public static void opretKunde(string KundeID, string navn, string adr, string oprettelsesdato, string fødselsdagsdato)
         {
-            string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + fødselsdagsdato + ")");
+            string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "','" + oprettelsesdato+"',"+fødselsdagsdato + ")");
             Sql_Methods.Sqlstatment(statement);
         }
         public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype, string OprettelsesDato, int KmKørt, int Årgang)
@@ -55,6 +55,7 @@ namespace KørselsBog
                     Console.WriteLine("Navn "+kunder["Navn"].ToString());
                     Console.WriteLine("Adresse = "+kunder["Adresse"].ToString());
                     Console.WriteLine("Fødselsdato = "+kunder["Fødselsdato"].ToString());
+                    Console.WriteLine("Oprettelsesdato = " + kunder["Oprettelsesdato"].ToString());
                     Console.WriteLine();
                 }
                 Console.WriteLine(table);
@@ -128,9 +129,9 @@ namespace KørselsBog
             string statement = ("Update Bil SET KundeID = '"+KundeID+"',Mærke = '"+mærke+"', Model = '"+model+"',Brændstoff = '"+brændstof+"', Oprettelsesdato = '"+opretdato+"', kmkørt = '"+kmkørt+"', Årgang = "+årgang+"WHERE RegNr = '" + regnr+"';");
             Sql_Methods.Sqlstatment(statement);
         }
-        public static void UpdateKunde(string KundeID, string navn, string adresse, string fødselsdagsdato)
+        public static void UpdateKunde(string KundeID, string navn, string adresse, string oprettelsesdato, string fødselsdagsdato)
         {
-            string statement = ("Update Kunder SET Navn = '" + navn + "',Adresse = '" + adresse + "', Fødselsdato = '" + fødselsdagsdato + "' WHERE KundeID = '" + KundeID + "';");
+            string statement = ("Update Kunder SET Navn = '" + navn + "',Adresse = '" + adresse + "', Oprettelsesdato = '"+oprettelsesdato+"', Fødselsdato = '" + fødselsdagsdato + "' WHERE KundeID = '" + KundeID + "';");
         }
         public static void UpdateVærkstedsbesøg(string regnr, string DatoAnkomst, string Datoafgang, string Mekaniker)
         {

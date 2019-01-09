@@ -1,1 +1,1 @@
-Insert into Kunder values(1,'seb','sebvej 12',1)
+Update Kunder Set Navn = 'Jonathan' WHERE KundeID = 1;
