@@ -115,12 +115,10 @@ namespace KørselsBog
         {
             string statement = ("DELETE FROM kunder WHERE KundeID = '" + KundeID + "', Delete from bil where KundeID = '"+KundeID+"'");
             Sql_Methods.Sqlstatment(statement);
-            statement = ("DELETE FROM Kunder WHERE KundeID = '" + KundeID + "'");
-            Sql_Methods.Sqlstatment(statement);
         }
         public static void DeleteFromVærksted(string regnr, string datoankomst)
         {
-            string statement = ("DELETE FROM Værkstedsbesøg WHERE RegNr = '" + regnr + "' and DatoAnkomst = " + datoankomst)
+            string statement = ("DELETE FROM Værkstedsbesøg WHERE RegNr = '" + regnr + "' and DatoAnkomst = " + datoankomst);
             Sql_Methods.Sqlstatment(statement);
         }
         public static void UpdateFromBil(string regnr)
