@@ -175,7 +175,6 @@ namespace KørselsBog
                     RegNr = Console.ReadLine();
                     Sql_Methods.DeleteFromBil(RegNr);
                     //SLET BIL MED DET RegNr
-                    Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D4)
                 {
@@ -183,7 +182,6 @@ namespace KørselsBog
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
                     Sql_Methods.SelectBil($"SELECT * FROM Bil WHERE RegNr = '" +RegNr+"'");
-                    Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D5)
                 {
@@ -191,7 +189,6 @@ namespace KørselsBog
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
                     Sql_Methods.SelectVærksted($"SELECT * FROM Værkstedsbesøg WHERE regnr = '" + RegNr + "'");
-                    Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D6)
                 {
@@ -206,7 +203,6 @@ namespace KørselsBog
                     Console.WriteLine("Indtast Mekaniker");
                     Mekaniker = Console.ReadLine();
                     Sql_Methods.opretVærkstedsbesøg(DatoAnkomst, Datoafgang, Mekaniker, RegNr);
-                    Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D7)
                 {
@@ -214,7 +210,6 @@ namespace KørselsBog
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
                     //Sql_Methods.SelectVærkstedsbesøg(RegNr);
-                    Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D8)
                 {
