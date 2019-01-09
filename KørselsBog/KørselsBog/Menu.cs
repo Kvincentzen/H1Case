@@ -181,6 +181,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
+                    Console.Clear();
                     Sql_Methods.SelectBil($"SELECT * FROM Bil WHERE RegNr = '" +RegNr+"'");
                 }
                 else if (key == ConsoleKey.D5)
@@ -188,6 +189,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Værkstedsbesøg");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
+                    Console.Clear(); 
                     Sql_Methods.SelectVærksted($"SELECT * FROM Værkstedsbesøg WHERE regnr = '" + RegNr + "'");
                 }
                 else if (key == ConsoleKey.D6)
