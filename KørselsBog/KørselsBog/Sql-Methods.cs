@@ -25,25 +25,22 @@ namespace KørselsBog
         public static void opretKunde(string KundeID, string navn, string adr, string fødselsdagsdato)
         {
             string statement = ("insert into kunder values ('" + KundeID + "','" + navn + "','" + adr + "'," + fødselsdagsdato + ")");
-            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Sqlstatment(statement);
         }
         public static void opretBil(string KundeID, string RegNr, string Mærke, string Model, string Brændstoffstype, string OprettelsesDato, int KmKørt, int Årgang)
         {
             string statement = ("insert into bil values ('" + KundeID + "','" + RegNr + "','" + Mærke + "','" + Model + "','" + Brændstoffstype + "','" + OprettelsesDato + "','" + KmKørt + "'," + Årgang + ")");
-            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Sqlstatment(statement);
         }
         public static void opretVærkstedsbesøg(int DatoAnkomst, int Datoafgang, string Mekaniker, string RegNr)
         {
             string statement = ("insert into værkstedsbesøg values ('" + DatoAnkomst + "','" + Datoafgang + "','" + Mekaniker + "','" + RegNr + "')");
-            //string statement = "insert into kunder values ('Knud Andersen','Telegrafvej 9', 45)";
             Sql_Methods.Sqlstatment(statement);
         }
         #endregion
 
         #region Selects
-        public static void SelectKunder(string sql)
+        public static void SelectKunder(string sql) // henter info på kundeID fra databasen
         {
             DataTable table = new DataTable();
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -63,7 +60,7 @@ namespace KørselsBog
                 Console.WriteLine(table);
             }
         }
-        public static void SelectBil(string sql)
+        public static void SelectBil(string sql) // henter info omkring en bil på RegNr fra databasen
         {
             DataTable table = new DataTable();
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -87,7 +84,7 @@ namespace KørselsBog
                 Console.WriteLine(table);
             }
         }
-        public static void SelectVærksted(string sql)
+        public static void SelectVærksted(string sql) // henter info på værkstedsbesøg fra databasen
         {
             DataTable table = new DataTable();
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -116,15 +113,14 @@ namespace KørselsBog
         }
         public static void DeleteFromKunder(string KundeID)
         {
-            string statement = ("DELETE FROM Værkstedsbesøg WHERE RegNr = '" + R)//Skal rettes til at slette værkstedsbesøg eller finde en anden løsning
-            statement = ("DELETE FROM Bil WHERE KundeID = '" + KundeID + "'");
+            string statement = ("DELETE FROM kunder WHERE KundeID = '" + KundeID + "', Delete from bil where KundeID = '"+KundeID+"'");
             Sql_Methods.Sqlstatment(statement);
             statement = ("DELETE FROM Kunder WHERE KundeID = '" + KundeID + "'");
             Sql_Methods.Sqlstatment(statement);
         }
-        public static void DeleteFromVærksted(string regnr)
+        public static void DeleteFromVærksted(string regnr, string datoankomst)
         {
-            string statement = ("DELETE FROM Værkstedsbesøg WHERE RegNr = '" + regnr + "'");
+            string statement = ("DELETE FROM Værkstedsbesøg WHERE RegNr = '" + regnr + "' and DatoAnkomst = " + datoankomst)
             Sql_Methods.Sqlstatment(statement);
         }
         public static void UpdateFromBil(string regnr)
