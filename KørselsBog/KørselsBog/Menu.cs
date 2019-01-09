@@ -34,7 +34,7 @@ namespace KørselsBog
             {
                 Console.Clear();
                 Console.WriteLine("Bil");
-                Console.WriteLine("1.Opret Bil\n2.Opdater Bil\n3.Slet Bil\n4.Vis Bil\n5.Vis Værkstedsbesøg\n6.Tilbage til hovedmenuen");
+                Console.WriteLine("1.Opret Bil\n2.Opdater Bil\n3.Slet Bil\n4.Vis Bil\n5.Vis Værkstedsbesøg\n6.Opret Værkstedsbesøg\n7.Slet Værkstedsbesøg\n8.Tilbage til hovedmenuen");
                 key = Console.ReadKey().Key;
                 Console.Clear();
                 if (key == ConsoleKey.D1)
@@ -190,10 +190,33 @@ namespace KørselsBog
                     Console.WriteLine("Vis Værkstedsbesøg");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    //Sql_Methods.SelectVærkstedsbesøg(RegNr);
+                    Sql_Methods.SelectVærksted($"SELECT * FROM Værkstedsbesøg WHERE regnr = '" + RegNr);
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D6)
+                {
+                    string DatoAnkomst, Datoafgang, Mekaniker;
+                    Console.WriteLine("Opret Værkstedsbesøg");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    Console.WriteLine("Indtast DatoAnkomst");
+                    DatoAnkomst = Console.ReadLine();
+                    Console.WriteLine("Indtast Datoafgang");
+                    Datoafgang = Console.ReadLine();
+                    Console.WriteLine("Indtast Mekaniker");
+                    Mekaniker = Console.ReadLine();
+                    Sql_Methods.opretVærkstedsbesøg(DatoAnkomst, Datoafgang, Mekaniker, RegNr);
+                    Console.ReadLine();
+                }
+                else if (key == ConsoleKey.D7)
+                {
+                    Console.WriteLine("Slet Værkstedsbesøg");
+                    Console.WriteLine("Indtast RegNr");
+                    RegNr = Console.ReadLine();
+                    //Sql_Methods.SelectVærkstedsbesøg(RegNr);
+                    Console.ReadLine();
+                }
+                else if (key == ConsoleKey.D8)
                 {
                     Hovedmenu();
                 }
