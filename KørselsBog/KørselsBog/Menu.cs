@@ -182,7 +182,7 @@ namespace KørselsBog
                     Console.WriteLine("Vis Bil");
                     Console.WriteLine("Indtast RegNr");
                     RegNr = Console.ReadLine();
-                    Sql_Methods.SelectBil($"SELECT * FROM Bil WHERE RegNr = " +RegNr);
+                    Sql_Methods.SelectBil($"SELECT * FROM Bil WHERE RegNr = '" +RegNr+"'");
                     Console.ReadLine();
                 }
                 else if (key == ConsoleKey.D5)
