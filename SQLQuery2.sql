@@ -1,1 +1,0 @@
-Update Kunder Set Navn = 'Jonathan' WHERE KundeID = 1;
