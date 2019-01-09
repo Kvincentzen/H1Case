@@ -250,14 +250,14 @@ namespace KørselsBog
                     Console.WriteLine("Indtast gyldig værdi");
                 }
                 Console.ReadKey();
-            } while (key != ConsoleKey.D1 && key != ConsoleKey.D2);
+            } while (key != ConsoleKey.D1 && key != ConsoleKey.D2 && key != ConsoleKey.D3);
         }
         #endregion
         #region Kundemenu
         private void Kunde()
         {
             ConsoleKey key = new ConsoleKey();
-            string KundeID, navn, adr, fødselsdagsdat;
+            string KundeID, navn, adr, fødselsdagsdat, OprettelsesDato;
             do
             {
                 Console.Clear();
@@ -280,7 +280,7 @@ namespace KørselsBog
                     Console.WriteLine("Indtast Fødselsdagsdato");
                     fødselsdagsdat = Console.ReadLine();
                     Console.Clear();
-                    Console.WriteLine("Indtast OprettelsesDato");
+                    OprettelsesDato = Convert.ToString(DateTime.Now.ToString("d/M/yyyy"));
                     Console.Clear();
                     do
                     {
@@ -345,15 +345,24 @@ namespace KørselsBog
                         }
                     } while (key != ConsoleKey.O);
 
-                    Sql_Methods.opretKunde(KundeID, navn, adr, fødselsdagsdat);
+                    Sql_Methods.opretKunde(KundeID, navn, adr, fødselsdagsdat,OprettelsesDato);
                 }
                 else if (key == ConsoleKey.D2)
                 {
                     Console.WriteLine("Opdater Kunde");
-                    Console.WriteLine("Indtast Kunde ID");
+                    Console.WriteLine("Indtast KundeID");
                     KundeID = Console.ReadLine();
-                    //Sql_Methods.Select($"SELECT {KundeID} FROM Kunde");
-                    Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Navn");
+                    navn = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Adresse");
+                    adr = Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Indtast Fødselsdagsdato");
+                    fødselsdagsdat = Console.ReadLine();
+                    Console.Clear();
+                    Sql_Methods.UpdateKunde(KundeID, navn, adr, fødselsdagsdat);
                 }
                 else if (key == ConsoleKey.D3)
                 {
