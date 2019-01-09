@@ -9,6 +9,7 @@ Create Table Kunder
 	KundeID INT NOT NULL Primary key,
 	Navn VARCHAR(30),
 	Adresse VARCHAR (50),
+	Oprettelsesdato Varchar(10),
 	Fødselsdato INT
 );
 Create Table Bil
