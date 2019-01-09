@@ -51,10 +51,10 @@ namespace KørselsBog
 
                 foreach (DataRow kunder in table.Rows)
                 {
-                    Console.WriteLine(kunder["KundeId"].ToString());
-                    Console.WriteLine(kunder["Navn"].ToString());
-                    Console.WriteLine(kunder["Adresse"].ToString());
-                    Console.WriteLine(kunder["Fødselsdato"].ToString());
+                    Console.WriteLine("KundeID = "+kunder["KundeId"].ToString());
+                    Console.WriteLine("Navn "+kunder["Navn"].ToString());
+                    Console.WriteLine("Adresse = "+kunder["Adresse"].ToString());
+                    Console.WriteLine("Fødselsdato ="+kunder["Fødselsdato"].ToString());
                     Console.WriteLine();
                 }
                 Console.WriteLine(table);
@@ -71,14 +71,14 @@ namespace KørselsBog
 
                 foreach (DataRow Bil in table.Rows)
                 {
-                    Console.WriteLine(Bil["KundeId"].ToString());
-                    Console.WriteLine(Bil["RegNr"].ToString());
-                    Console.WriteLine(Bil["Mærke"].ToString());
-                    Console.WriteLine(Bil["Model"].ToString());
-                    Console.WriteLine(Bil["Brændstoff"].ToString());
-                    Console.WriteLine(Bil["Oprettelsesdato"].ToString());
-                    Console.WriteLine(Bil["KmKørt"].ToString());
-                    Console.WriteLine(Bil["Årgang"].ToString());
+                    Console.WriteLine("KundeID = "+Bil["KundeId"].ToString());
+                    Console.WriteLine("RegNr = "+Bil["RegNr"].ToString());
+                    Console.WriteLine("Mærke = "+Bil["Mærke"].ToString());
+                    Console.WriteLine("Model = "+Bil["Model"].ToString());
+                    Console.WriteLine("Brændstofstype = "+Bil["Brændstoff"].ToString());
+                    Console.WriteLine("Oprettelsesdato = "+Bil["Oprettelsesdato"].ToString());
+                    Console.WriteLine("Km Kørt = "+Bil["KmKørt"].ToString());
+                    Console.WriteLine("Årgang = "+Bil["Årgang"].ToString());
                     Console.WriteLine();
                 }
                 Console.WriteLine(table);
@@ -95,10 +95,10 @@ namespace KørselsBog
 
                 foreach (DataRow Værkstedsbesøg in table.Rows)
                 {
-                    Console.WriteLine(Værkstedsbesøg["DatoAnkomst"].ToString());
-                    Console.WriteLine(Værkstedsbesøg["DatoAfgang"].ToString());
-                    Console.WriteLine(Værkstedsbesøg["Mekaniker"].ToString());
-                    Console.WriteLine(Værkstedsbesøg["RegNr"].ToString());
+                    Console.WriteLine("Dato Ankomst = "+Værkstedsbesøg["DatoAnkomst"].ToString());
+                    Console.WriteLine("Dato Afgang = "+Værkstedsbesøg["DatoAfgang"].ToString());
+                    Console.WriteLine("Mekaniker = "+Værkstedsbesøg["Mekaniker"].ToString());
+                    Console.WriteLine("RegNr = "+Værkstedsbesøg["RegNr"].ToString());
                     Console.WriteLine();
                 }
                 Console.WriteLine(table);
