@@ -364,9 +364,8 @@ namespace KørselsBog
         public void Kundeoversigt()
         {
             Console.WriteLine("Kundeoversigt");
-            //SELECT KundeID, Navn, Adresse, Fødselsdato
-            //FROM Kunder
-            //ORDER BY Navn ASC;
+            Console.WriteLine("-------------");
+            Sql_Methods.SelectKunder($"SELECT KundeID, Navn, Adresse, Fødselsdato FROM Kunder ORDER BY Navn ASC");
         }
     }
 }
