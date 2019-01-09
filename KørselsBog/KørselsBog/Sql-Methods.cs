@@ -129,9 +129,9 @@ namespace KørselsBog
             string statement = ("Update Bil SET KundeID = '"+KundeID+"',Mærke = '"+mærke+"', Model = '"+model+"',Brændstoff = '"+brændstof+"', Oprettelsesdato = '"+opretdato+"', kmkørt = '"+kmkørt+"', Årgang = "+årgang+"WHERE RegNr = '" + regnr+"';");
             Sql_Methods.Sqlstatment(statement);
         }
-        public static void UpdateKunde(string KundeID, string navn, string adresse, string oprettelsesdato, string fødselsdagsdato)
+        public static void UpdateKunde(string KundeID, string navn, string adresse, string fødselsdagsdato)
         {
-            string statement = ("Update Kunder SET Navn = '" + navn + "',Adresse = '" + adresse + "', Oprettelsesdato = '"+oprettelsesdato+"', Fødselsdato = '" + fødselsdagsdato + "' WHERE KundeID = '" + KundeID + "';");
+            string statement = ("Update Kunder SET Navn = '" + navn + "',Adresse = '" + adresse + "', Fødselsdato = '" + fødselsdagsdato + "' WHERE KundeID = '" + KundeID + "';");
         }
         public static void UpdateVærkstedsbesøg(string regnr, string DatoAnkomst, string Datoafgang, string Mekaniker)
         {
