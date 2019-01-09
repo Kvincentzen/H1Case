@@ -345,7 +345,7 @@ namespace KørselsBog
                         }
                     } while (key != ConsoleKey.O);
 
-                    Sql_Methods.opretKunde(KundeID, navn, adr, fødselsdagsdat,OprettelsesDato);
+                    Sql_Methods.opretKunde(KundeID, navn, adr,OprettelsesDato, fødselsdagsdat);
                 }
                 else if (key == ConsoleKey.D2)
                 {
